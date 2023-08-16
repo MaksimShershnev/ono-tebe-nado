@@ -13,8 +13,6 @@
   align-items: center;
 }
 
-.header-menu {
-}
 .header__links-list {
   display: flex;
   gap: 32px;
@@ -43,7 +41,6 @@
 .address {
   max-width: 240px;
   font-style: normal;
- 
 }
 
 .header .address {
