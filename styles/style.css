@@ -18,20 +18,28 @@
   gap: 32px;
   min-width: 388px;
   list-style: circle;
-  /*background-color: red;*/
 }
 
-.header__links-list .header__links-list-item_no-bullit {
+.header__links-list-item_no-bullit {
   list-style: none;
-  margin-left: 0;
+}
+
+/* делаем подчеркивание границей вместо стандартного подчеркивания ссылки*/
+
+.header__link,
+.address a {
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.header__link_active {
+  border-bottom: none;
 }
 
 .header__logo {
-  display: block;
   width: 148px;
   height: 105px;
   margin: auto;
-  flex-shrink: 0;
 }
 
 .header__logo-image {
@@ -45,4 +53,99 @@
 
 .header .address {
   margin-left: auto;
+}
+
+.cover {
+  color: #fff;
+  z-index: 0;
+  position: relative;
+  background-image: url(../images/cover.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: #4b4b4b; /* Если не загрузится фоновое изображение */
+  background-repeat: no-repeat;
+  text-transform: uppercase;
+}
+
+.overlay {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.6;
+  background: #000;
+  width: 100%;
+  height: 100%;
+}
+
+.cover__title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 165px 50px 86px;
+}
+
+.aligned-text {
+  display: inline-block;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 30px;
+  line-height: 1;
+}
+
+/* Для соответствия макету изменяем  line-height у первой строчки */
+
+.aligned-text-line-height {
+  line-height: 1.15;
+}
+
+.letter-spacing-extended {
+  letter-spacing: 60px;
+}
+
+.no-letter-spacing {
+  letter-spacing: 0;
+}
+
+.cover__description {
+  padding: 50px 50px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.cover__description-text {
+  word-spacing: 18px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  margin-right: 78px;
+}
+
+.bet-button {
+  color: #fff;
+  width: 257px;
+  height: 52px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: Raleway;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.bet-button:hover {
+  color: #000;
+  transition: 0.2s;
+  background-color: #fff;
+}
+
+.aligned-text_center {
+  text-align: center;
+}
+
+.aligned-text_right {
+  text-align: right;
 }
