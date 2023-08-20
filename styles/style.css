@@ -4,13 +4,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
+  align-items: center;
+  padding: 92px 50px;
   color: #000;
+  font-weight: normal;
   font-size: 18px;
   font-style: normal;
-  font-weight: normal;
   line-height: 1.35;
-  padding: 92px 50px;
-  align-items: center;
 }
 
 .header__links-list {
@@ -20,7 +20,7 @@
   list-style: circle;
 }
 
-.header__links-list-item_no-bullit {
+.links-list-item_no-bullit {
   list-style: none;
 }
 
@@ -28,8 +28,8 @@
 
 .header__link,
 .address a {
-  text-decoration: none;
   border-bottom: 1px solid black;
+  text-decoration: none;
 }
 
 .header__link_active {
@@ -56,24 +56,15 @@
 }
 
 .cover {
-  color: #fff;
-  z-index: 0;
   position: relative;
-  background-image: url(../images/cover.jpg);
-  background-size: cover;
-  background-position: center;
-  background-color: #4b4b4b; /* Если не загрузится фоновое изображение */
-  background-repeat: no-repeat;
+  z-index: 0;
+  color: #fff;
   text-transform: uppercase;
-}
-
-.overlay {
-  position: absolute;
-  z-index: -1;
-  opacity: 0.6;
-  background: #000;
-  width: 100%;
-  height: 100%;
+  background-color: #4b4b4b; /* Если не загрузится фоновое изображение чтобы был виден текст */
+  background-image: url(../images/cover.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .cover__title {
@@ -85,11 +76,11 @@
 
 .aligned-text {
   display: inline-block;
+  font-weight: bold;
   font-size: 100px;
   font-style: normal;
-  font-weight: bold;
-  letter-spacing: 30px;
   line-height: 1;
+  letter-spacing: 30px;
 }
 
 /* Для соответствия макету изменяем  line-height у первой строчки */
@@ -107,39 +98,139 @@
 }
 
 .cover__description {
-  padding: 50px 50px;
   display: flex;
   justify-content: end;
   align-items: center;
+  padding: 50px 50px;
 }
 
 .cover__description-text {
-  word-spacing: 18px;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 1;
   margin-right: 78px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1;
+  word-spacing: 18px;
 }
 
 .bet-button {
-  color: #fff;
   width: 257px;
   height: 52px;
   border: 1px solid #fff;
-  background-color: transparent;
-  cursor: pointer;
+  color: #fff;
   font-family: Raleway;
+  font-weight: 400;
   font-size: 22px;
   font-style: normal;
-  font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .bet-button:hover {
   color: #000;
-  transition: 0.2s;
   background-color: #fff;
+  transition: 0.2s;
+}
+
+.lots {
+  position: relative;
+  padding: 180px 50px;
+}
+
+.lots__heading {
+  position: absolute; /* Чтобы указать верхнюю границу .lots__card-list от границы контейнера lots согласно макету */
+  margin-left: 40px;
+  font-weight: 700;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.lots__card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  margin: 74px 0 30px;
+}
+
+.lots__card-list-item {
+  flex-basis: 430px;
+  min-height: 450px;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  height: 100%;
+  padding: 50px 40px;
+  color: #fff;
+  background-color: #4b4b4b; /* Если не загрузится фоновое изображение чтобы был виден текст */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card_type_film {
+  background-image: url(../images/card-lot-01.jpg);
+}
+
+.card_type_book {
+  background-image: url(../images/card-lot-02.jpg);
+}
+
+.card_type_picture {
+  background-image: url(../images/card-lot-03.jpg);
+}
+
+.card__title {
+  font-weight: 700;
+  font-size: 22px;
+  font-style: normal;
+  line-height: 1.2;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+.card__text {
+  font-weight: 400;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1.2;
+}
+
+.lots__look-more-link {
+  margin-top: 30px;
+  margin-left: 40px;
+  border-bottom: 1px solid black;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.overlay {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: #000;
+}
+
+.card:hover .overlay {
+  opacity: 0.1;
+  transition: 0.2s;
 }
 
 .aligned-text_center {
