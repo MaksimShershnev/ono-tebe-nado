@@ -13,7 +13,6 @@ html {
   font-weight: normal;
   font-size: 18px;
   font-style: normal;
-  line-height: 1.35;
 }
 
 .header__links-list {
@@ -30,12 +29,14 @@ html {
 /* делаем подчеркивание границей вместо стандартного подчеркивания ссылки*/
 
 .header__link,
-.address a {
+.address a,
+.footer__menu-link {
   border-bottom: 1px solid black;
   text-decoration: none;
 }
 
-.header__link_active {
+.header__link_active,
+.footer__menu-link_active {
   border-bottom: none;
 }
 
@@ -51,7 +52,9 @@ html {
 
 .address {
   max-width: 240px;
+  font-weight: 400;
   font-style: normal;
+  line-height: 1.35;
 }
 
 .header .address {
@@ -158,9 +161,9 @@ html {
 }
 
 .lots__card-list-item {
+  flex-grow: 1;
   flex-basis: 430px;
   min-height: 450px;
-  flex-grow: 1;
 }
 
 .card-link {
@@ -172,8 +175,8 @@ html {
   z-index: 0;
   display: flex;
   flex-direction: column;
-  gap: 25px;
   justify-content: space-between;
+  gap: 25px;
   height: 100%;
   padding: 50px 40px;
   color: #fff;
@@ -227,19 +230,19 @@ html {
 
 .about__column {
   display: grid;
-  gap: 25px;
-  min-height: 487px;
   grid-template-columns: 430px 1fr;
   place-content: space-between;
+  gap: 25px;
+  min-height: 487px;
 }
 
 .about__logo {
   display: flex;
-  margin: 0 auto;
   width: 240px;
   height: 240px;
-  background-color: #000;
+  margin: 0 auto;
   border-radius: 50%;
+  background-color: #000;
 }
 
 .about__logo-image {
@@ -248,9 +251,9 @@ html {
 
 .about__title {
   margin: 100px 0;
+  font-weight: 700;
   font-size: 40px;
   font-style: normal;
-  font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
 }
@@ -259,25 +262,33 @@ html {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  font-weight: 400;
   font-size: 20px;
   font-style: normal;
-  font-weight: 400;
 }
 
 .footer {
-  padding: 90px 50px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 240px 1fr 240px;
+  padding: 90px 50px;
+  font-size: 18px;
+}
+
+.footer__social-list {
+  display: flex;
   justify-content: space-between;
-  align-items: top;
-  color: #000;
+}
+
+.footer__social-list-item {
+  max-width: 48px;
+  max-height: 48px;
 }
 
 .overlay {
   position: absolute;
-  z-index: -1;
   top: 0;
   left: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
   opacity: 0.6;
@@ -289,7 +300,8 @@ html {
   transition: 0.2s;
 }
 
-.aligned-text_center {
+.aligned-text_center,
+.footer__menu {
   text-align: center;
 }
 
