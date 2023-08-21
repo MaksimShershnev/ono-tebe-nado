@@ -282,6 +282,12 @@ html {
 .footer__social-list-item {
   max-width: 48px;
   max-height: 48px;
+  border-radius: 50%; /* Для затемнения при :hover */
+}
+
+.footer__social-list-item:hover {
+  background-color: #b6b6b6;
+  transition: 0.2s;
 }
 
 .overlay {
