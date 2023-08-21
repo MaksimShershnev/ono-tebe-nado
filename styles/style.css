@@ -138,7 +138,7 @@ html {
 
 .lots {
   position: relative;
-  padding: 180px 50px;
+  padding: 180px 50px 90px;
 }
 
 .lots__heading {
@@ -222,7 +222,7 @@ html {
 }
 
 .about {
-  padding: 0 50px 100px;
+  padding: 90px 50px;
 }
 
 .about__column {
@@ -260,8 +260,17 @@ html {
   flex-direction: column;
   gap: 25px;
   font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 1;
+}
+
+.footer {
+  padding: 90px 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: top;
+  color: #000;
 }
 
 .overlay {
