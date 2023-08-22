@@ -1,12 +1,11 @@
 /* место для вашего кода */
 html {
   scroll-behavior: smooth;
-  background-color: #4b4b4b;
 }
 
 .header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr min-content 1fr;
   justify-content: space-between;
   align-items: center;
   padding: 94px 50px;
@@ -19,36 +18,35 @@ html {
 .header__links-list {
   display: flex;
   gap: 32px;
-  min-width: 388px;
+  max-width: 388px;
   list-style: circle;
 }
 
-.links-list-item_no-bullit {
+.header__links-list-item_no-bullit {
   list-style: none;
 }
 
 /* делаем подчеркивание границей вместо стандартного подчеркивания ссылки*/
 
-.header__link,
-.address a,
-.footer__menu-link {
-  border-bottom: 1px solid black;
+.header__link {
+  border-bottom: 1px solid #000;
   text-decoration: none;
 }
 
-.header__link_active,
-.footer__menu-link_active {
+.header__link_active {
   border-bottom: none;
 }
 
 .header__logo {
   width: 148px;
   height: 105px;
-  margin: auto;
 }
 
 .header__logo-image {
+  display: block;
   height: 100%;
+  object-fit: contain; /* Значение cover растягивает максимально по ширине, обрезая логотив по высоте. Поэтому для такого ракзмера контейнера выбрал contain */
+  object-position: center;
 }
 
 .address {
@@ -58,13 +56,27 @@ html {
   line-height: 1.35;
 }
 
-.header .address {
+.header__address {
   margin-left: auto;
+}
+
+.address__telephone {
+  border-bottom: 1px solid #000;
+  text-decoration: none;
+}
+
+.address__mail {
+  border-bottom: 1px solid #000;
+  text-decoration: none;
 }
 
 .cover {
   position: relative;
   z-index: 0;
+  display: flex; /* чтобы убрать margin у cover__description и заменить на gap */
+  flex-direction: column;
+  gap: 135px;
+  padding: 165px 50px 50px;
   color: #fff;
   text-transform: uppercase;
   background-color: #4b4b4b; /* Если не загрузится фоновое изображение чтобы был виден текст */
@@ -78,12 +90,11 @@ html {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 165px 50px 86px;
 }
 
 .aligned-text {
   display: inline-block;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 100px;
   font-style: normal;
   line-height: 1;
@@ -92,7 +103,7 @@ html {
 
 /* Для соответствия макету изменяем  line-height у первой строчки */
 
-.aligned-text-line-height {
+.aligned-text_line-height {
   line-height: 1.15;
 }
 
@@ -108,11 +119,10 @@ html {
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 50px 50px;
+  gap: 78px;
 }
 
 .cover__description-text {
-  margin-right: 78px;
   font-weight: 400;
   font-size: 22px;
   line-height: 1;
@@ -124,13 +134,14 @@ html {
   height: 52px;
   border: 1px solid #fff;
   color: #fff;
-  font-family: Raleway;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 22px;
   font-style: normal;
   line-height: normal;
   text-transform: uppercase;
   background-color: transparent;
+  transition: 0.2s;
   cursor: pointer;
 }
 
@@ -141,12 +152,10 @@ html {
 }
 
 .lots {
-  position: relative;
-  padding: 180px 50px 90px;
+  margin: 180px 50px;
 }
 
 .lots__heading {
-  position: absolute; /* Чтобы указать верхнюю границу .lots__card-list от границы контейнера lots согласно макету */
   margin-left: 40px;
   font-weight: 700;
   font-size: 40px;
@@ -158,7 +167,11 @@ html {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 25px;
-  margin: 74px 0 30px;
+  margin: 27px 0 30px;
+}
+
+.lots__card-list_no-bullit {
+  list-style: none;
 }
 
 .lots__card-list-item {
@@ -218,7 +231,7 @@ html {
 .lots__look-more-link {
   margin-top: 30px;
   margin-left: 40px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000;
   font-weight: 400;
   font-size: 20px;
   line-height: normal;
@@ -226,19 +239,17 @@ html {
 }
 
 .about {
-  padding: 90px 50px;
-}
-
-.about__column {
   display: grid;
   grid-template-columns: 430px 1fr;
   place-content: space-between;
   gap: 25px;
-  min-height: 487px;
+  margin: 0 50px 90px;
 }
 
 .about__logo {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 240px;
   height: 240px;
   margin: 0 auto;
@@ -247,7 +258,10 @@ html {
 }
 
 .about__logo-image {
-  padding: 63px 46px;
+  display: block;
+  max-width: 148px;
+  max-height: 114px;
+  object-fit: contain;
 }
 
 .about__title {
@@ -263,6 +277,9 @@ html {
   display: flex;
   flex-direction: column;
   gap: 25px;
+}
+
+.about__text-paragraph {
   font-weight: 400;
   font-size: 20px;
   font-style: normal;
@@ -275,31 +292,53 @@ html {
   font-size: 18px;
 }
 
+.footer__menu {
+  text-align: center;
+}
+
+.footer__menu-link {
+  border-bottom: 1px solid #000;
+  text-decoration: none;
+}
+
+.footer__menu-link_active {
+  border-bottom: none;
+}
+
+.footer__menu_no-bullit {
+  list-style: none;
+}
+
 .footer__social-list {
   display: flex;
   justify-content: space-between;
 }
 
-.footer__social-list-item {
-  max-width: 48px;
-  max-height: 48px;
-  border-radius: 50%; /* Для затемнения при :hover */
+.footer__social-list_no-bullit {
+  list-style: none;
 }
 
-.footer__social-list-item:hover {
+.footer__social-link {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; /* Для затемнения при :hover */
+  transition: 0.2s;
+}
+
+.footer__social-link:hover {
   background-color: #b6b6b6;
   transition: 0.2s;
 }
 
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: -1;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
-  background: #000;
+  background-color: rgb(0 0 0/0.6);
+  transition: 0.2s;
 }
 
 .card:hover .overlay {
@@ -307,8 +346,7 @@ html {
   transition: 0.2s;
 }
 
-.aligned-text_center,
-.footer__menu {
+.aligned-text_center {
   text-align: center;
 }
 
